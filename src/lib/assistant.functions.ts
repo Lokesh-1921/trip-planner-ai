@@ -7,8 +7,8 @@ import { DATASET_VERSION } from "./catalog";
 // Backend configuration is read only inside handlers (server-side). No paid gateway or fallback.
 export const getBackendStatus = createServerFn({ method: "GET" }).handler(async () => {
   return {
-    groq: Boolean(process.env.GROQ_API_KEY),
-    supabase: Boolean(process.env.SUPABASE_URL && process.env.SUPABASE_PUBLISHABLE_KEY),
+    groq: Boolean(process.env['GROQ_API_KEY']),
+    supabase: Boolean(process.env['SUPABASE_URL'] && process.env['SUPABASE_PUBLISHABLE_KEY']),
   };
 });
 
@@ -43,7 +43,7 @@ const outputSchema = z.object({
   status: z.enum(STATUSES),
   message: z.string().max(900),
   question: z.string().max(400).nullable(),
-  input_patch: z.record(z.string(), z.unknown()),
+  input_patch: z.record(z.string(), z.any()),
   options: z.array(z.object({
     option_id: z.string(), total_inr: z.number(), reason: z.string().max(300), tradeoff: z.string().max(300),
     record_ids: z.tuple([z.string(), z.string()]),
@@ -95,7 +95,7 @@ async function callGroq(key: string, messages: { role: string; content: string }
 export const runAssistant = createServerFn({ method: "POST" })
   .inputValidator((d) => inputSchema.parse(d))
   .handler(async ({ data }): Promise<Result> => {
-    const key = process.env.GROQ_API_KEY;
+    const key = process.env['GROQ_API_KEY'];
     if (!key) return { status: "not_configured" };
 
     const trip = data.trip as TripInputs;

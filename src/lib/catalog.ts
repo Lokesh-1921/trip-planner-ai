@@ -4,7 +4,8 @@ import originsCsv from "@/data/origins.csv?raw";
 import flightsCsv from "@/data/flights.csv?raw";
 import hotelsCsv from "@/data/hotels.csv?raw";
 
-export function parseCsv(text: string): Record<string, string>[] {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export function parseCsv(text: string): any[] {
   const rows: string[][] = [];
   let row: string[] = [];
   let cur = "";
@@ -26,7 +27,7 @@ export function parseCsv(text: string): Record<string, string>[] {
   }
   row.push(cur);
   if (row.some((v) => v !== "")) rows.push(row);
-  const [header, ...body] = rows;
+  const [header = [], ...body] = rows;
   return body.map((r) => Object.fromEntries(header.map((h, i) => [h, r[i] ?? ""])));
 }
 
