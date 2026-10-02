@@ -1,0 +1,61 @@
+hotel_id,destination_id,label,nightly_inr_per_room,max_guests_per_room,max_rooms,quiet,step_free,diet_tags,refundable,cancellation_terms,taxes_included,valid_from,valid_to,is_synthetic,dataset_version
+H01B,D01,SIM Goa Value Stay,1600,2,3,False,False,vegetarian,False,Synthetic: non-refundable,True,2026-11-01,2027-03-31,True,1.0
+H01C,D01,SIM Goa Calm Stay,2300,2,3,True,False,vegetarian;vegan,True,Synthetic: full refund before 7 days; no refund later,True,2026-11-01,2027-03-31,True,1.0
+H01P,D01,SIM Goa Flexible Stay,3200,2,3,True,True,vegetarian;vegan;jain,True,Synthetic: full refund before 7 days; no refund later,True,2026-11-01,2027-03-31,True,1.0
+H02B,D02,SIM Jaipur Value Stay,1700,2,3,False,False,vegetarian,False,Synthetic: non-refundable,True,2026-11-01,2027-03-31,True,1.0
+H02C,D02,SIM Jaipur Calm Stay,2400,2,3,True,False,vegetarian;vegan,True,Synthetic: full refund before 7 days; no refund later,True,2026-11-01,2027-03-31,True,1.0
+H02P,D02,SIM Jaipur Flexible Stay,3300,2,3,True,False,vegetarian;vegan;jain,True,Synthetic: full refund before 7 days; no refund later,True,2026-11-01,2027-03-31,True,1.0
+H03B,D03,SIM Udaipur Value Stay,1800,2,3,False,False,vegetarian,False,Synthetic: non-refundable,True,2026-11-01,2027-03-31,True,1.0
+H03C,D03,SIM Udaipur Calm Stay,2500,2,3,True,False,vegetarian;vegan,True,Synthetic: full refund before 7 days; no refund later,True,2026-11-01,2027-03-31,True,1.0
+H03P,D03,SIM Udaipur Flexible Stay,3400,2,3,True,True,vegetarian;vegan;jain,True,Synthetic: full refund before 7 days; no refund later,True,2026-11-01,2027-03-31,True,1.0
+H04B,D04,SIM Kochi Value Stay,1900,2,3,False,False,vegetarian,False,Synthetic: non-refundable,True,2026-11-01,2027-03-31,True,1.0
+H04C,D04,SIM Kochi Calm Stay,2600,2,3,True,False,vegetarian;vegan,True,Synthetic: full refund before 7 days; no refund later,True,2026-11-01,2027-03-31,True,1.0
+H04P,D04,SIM Kochi Flexible Stay,3500,2,3,True,False,vegetarian;vegan;jain,True,Synthetic: full refund before 7 days; no refund later,True,2026-11-01,2027-03-31,True,1.0
+H05B,D05,SIM Mysuru Value Stay,1600,2,3,False,False,vegetarian,False,Synthetic: non-refundable,True,2026-11-01,2027-03-31,True,1.0
+H05C,D05,SIM Mysuru Calm Stay,2300,2,3,True,False,vegetarian;vegan,True,Synthetic: full refund before 7 days; no refund later,True,2026-11-01,2027-03-31,True,1.0
+H05P,D05,SIM Mysuru Flexible Stay,3200,2,3,True,True,vegetarian;vegan;jain,True,Synthetic: full refund before 7 days; no refund later,True,2026-11-01,2027-03-31,True,1.0
+H06B,D06,SIM Varanasi Value Stay,1700,2,3,False,False,vegetarian,False,Synthetic: non-refundable,True,2026-11-01,2027-03-31,True,1.0
+H06C,D06,SIM Varanasi Calm Stay,2400,2,3,True,False,vegetarian;vegan,True,Synthetic: full refund before 7 days; no refund later,True,2026-11-01,2027-03-31,True,1.0
+H06P,D06,SIM Varanasi Flexible Stay,3300,2,3,True,False,vegetarian;vegan;jain,True,Synthetic: full refund before 7 days; no refund later,True,2026-11-01,2027-03-31,True,1.0
+H07B,D07,SIM Amritsar Value Stay,1800,2,3,False,False,vegetarian,False,Synthetic: non-refundable,True,2026-11-01,2027-03-31,True,1.0
+H07C,D07,SIM Amritsar Calm Stay,2500,2,3,True,False,vegetarian;vegan,True,Synthetic: full refund before 7 days; no refund later,True,2026-11-01,2027-03-31,True,1.0
+H07P,D07,SIM Amritsar Flexible Stay,3400,2,3,True,True,vegetarian;vegan;jain,True,Synthetic: full refund before 7 days; no refund later,True,2026-11-01,2027-03-31,True,1.0
+H08B,D08,SIM Rishikesh Value Stay,1900,2,3,False,False,vegetarian,False,Synthetic: non-refundable,True,2026-11-01,2027-03-31,True,1.0
+H08C,D08,SIM Rishikesh Calm Stay,2600,2,3,True,False,vegetarian;vegan,True,Synthetic: full refund before 7 days; no refund later,True,2026-11-01,2027-03-31,True,1.0
+H08P,D08,SIM Rishikesh Flexible Stay,3500,2,3,True,False,vegetarian;vegan;jain,True,Synthetic: full refund before 7 days; no refund later,True,2026-11-01,2027-03-31,True,1.0
+H09B,D09,SIM Shimla Value Stay,1600,2,3,False,False,vegetarian,False,Synthetic: non-refundable,True,2026-11-01,2027-03-31,True,1.0
+H09C,D09,SIM Shimla Calm Stay,2300,2,3,True,False,vegetarian;vegan,True,Synthetic: full refund before 7 days; no refund later,True,2026-11-01,2027-03-31,True,1.0
+H09P,D09,SIM Shimla Flexible Stay,3200,2,3,True,True,vegetarian;vegan;jain,True,Synthetic: full refund before 7 days; no refund later,True,2026-11-01,2027-03-31,True,1.0
+H10B,D10,SIM Manali Value Stay,1700,2,3,False,False,vegetarian,False,Synthetic: non-refundable,True,2026-11-01,2027-03-31,True,1.0
+H10C,D10,SIM Manali Calm Stay,2400,2,3,True,False,vegetarian;vegan,True,Synthetic: full refund before 7 days; no refund later,True,2026-11-01,2027-03-31,True,1.0
+H10P,D10,SIM Manali Flexible Stay,3300,2,3,True,False,vegetarian;vegan;jain,True,Synthetic: full refund before 7 days; no refund later,True,2026-11-01,2027-03-31,True,1.0
+H11B,D11,SIM Darjeeling Value Stay,1800,2,3,False,False,vegetarian,False,Synthetic: non-refundable,True,2026-11-01,2027-03-31,True,1.0
+H11C,D11,SIM Darjeeling Calm Stay,2500,2,3,True,False,vegetarian;vegan,True,Synthetic: full refund before 7 days; no refund later,True,2026-11-01,2027-03-31,True,1.0
+H11P,D11,SIM Darjeeling Flexible Stay,3400,2,3,True,True,vegetarian;vegan;jain,True,Synthetic: full refund before 7 days; no refund later,True,2026-11-01,2027-03-31,True,1.0
+H12B,D12,SIM Gangtok Value Stay,1900,2,3,False,False,vegetarian,False,Synthetic: non-refundable,True,2026-11-01,2027-03-31,True,1.0
+H12C,D12,SIM Gangtok Calm Stay,2600,2,3,True,False,vegetarian;vegan,True,Synthetic: full refund before 7 days; no refund later,True,2026-11-01,2027-03-31,True,1.0
+H12P,D12,SIM Gangtok Flexible Stay,3500,2,3,True,False,vegetarian;vegan;jain,True,Synthetic: full refund before 7 days; no refund later,True,2026-11-01,2027-03-31,True,1.0
+H13B,D13,SIM Srinagar Value Stay,1600,2,3,False,False,vegetarian,False,Synthetic: non-refundable,True,2026-11-01,2027-03-31,True,1.0
+H13C,D13,SIM Srinagar Calm Stay,2300,2,3,True,False,vegetarian;vegan,True,Synthetic: full refund before 7 days; no refund later,True,2026-11-01,2027-03-31,True,1.0
+H13P,D13,SIM Srinagar Flexible Stay,3200,2,3,True,True,vegetarian;vegan;jain,True,Synthetic: full refund before 7 days; no refund later,True,2026-11-01,2027-03-31,True,1.0
+H14B,D14,SIM Leh Value Stay,1700,2,3,False,False,vegetarian,False,Synthetic: non-refundable,True,2026-11-01,2027-03-31,True,1.0
+H14C,D14,SIM Leh Calm Stay,2400,2,3,True,False,vegetarian;vegan,True,Synthetic: full refund before 7 days; no refund later,True,2026-11-01,2027-03-31,True,1.0
+H14P,D14,SIM Leh Flexible Stay,3300,2,3,True,False,vegetarian;vegan;jain,True,Synthetic: full refund before 7 days; no refund later,True,2026-11-01,2027-03-31,True,1.0
+H15B,D15,SIM Agra Value Stay,1800,2,3,False,False,vegetarian,False,Synthetic: non-refundable,True,2026-11-01,2027-03-31,True,1.0
+H15C,D15,SIM Agra Calm Stay,2500,2,3,True,False,vegetarian;vegan,True,Synthetic: full refund before 7 days; no refund later,True,2026-11-01,2027-03-31,True,1.0
+H15P,D15,SIM Agra Flexible Stay,3400,2,3,True,True,vegetarian;vegan;jain,True,Synthetic: full refund before 7 days; no refund later,True,2026-11-01,2027-03-31,True,1.0
+H16B,D16,SIM Pondicherry Value Stay,1900,2,3,False,False,vegetarian,False,Synthetic: non-refundable,True,2026-11-01,2027-03-31,True,1.0
+H16C,D16,SIM Pondicherry Calm Stay,2600,2,3,True,False,vegetarian;vegan,True,Synthetic: full refund before 7 days; no refund later,True,2026-11-01,2027-03-31,True,1.0
+H16P,D16,SIM Pondicherry Flexible Stay,3500,2,3,True,False,vegetarian;vegan;jain,True,Synthetic: full refund before 7 days; no refund later,True,2026-11-01,2027-03-31,True,1.0
+H17B,D17,SIM Ooty Value Stay,1600,2,3,False,False,vegetarian,False,Synthetic: non-refundable,True,2026-11-01,2027-03-31,True,1.0
+H17C,D17,SIM Ooty Calm Stay,2300,2,3,True,False,vegetarian;vegan,True,Synthetic: full refund before 7 days; no refund later,True,2026-11-01,2027-03-31,True,1.0
+H17P,D17,SIM Ooty Flexible Stay,3200,2,3,True,True,vegetarian;vegan;jain,True,Synthetic: full refund before 7 days; no refund later,True,2026-11-01,2027-03-31,True,1.0
+H18B,D18,SIM Madurai Value Stay,1700,2,3,False,False,vegetarian,False,Synthetic: non-refundable,True,2026-11-01,2027-03-31,True,1.0
+H18C,D18,SIM Madurai Calm Stay,2400,2,3,True,False,vegetarian;vegan,True,Synthetic: full refund before 7 days; no refund later,True,2026-11-01,2027-03-31,True,1.0
+H18P,D18,SIM Madurai Flexible Stay,3300,2,3,True,False,vegetarian;vegan;jain,True,Synthetic: full refund before 7 days; no refund later,True,2026-11-01,2027-03-31,True,1.0
+H19B,D19,SIM Puri Value Stay,1800,2,3,False,False,vegetarian,False,Synthetic: non-refundable,True,2026-11-01,2027-03-31,True,1.0
+H19C,D19,SIM Puri Calm Stay,2500,2,3,True,False,vegetarian;vegan,True,Synthetic: full refund before 7 days; no refund later,True,2026-11-01,2027-03-31,True,1.0
+H19P,D19,SIM Puri Flexible Stay,3400,2,3,True,True,vegetarian;vegan;jain,True,Synthetic: full refund before 7 days; no refund later,True,2026-11-01,2027-03-31,True,1.0
+H20B,D20,SIM Khajuraho Value Stay,1900,2,3,False,False,vegetarian,False,Synthetic: non-refundable,True,2026-11-01,2027-03-31,True,1.0
+H20C,D20,SIM Khajuraho Calm Stay,2600,2,3,True,False,vegetarian;vegan,True,Synthetic: full refund before 7 days; no refund later,True,2026-11-01,2027-03-31,True,1.0
+H20P,D20,SIM Khajuraho Flexible Stay,3500,2,3,True,False,vegetarian;vegan;jain,True,Synthetic: full refund before 7 days; no refund later,True,2026-11-01,2027-03-31,True,1.0

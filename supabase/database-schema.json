@@ -1,0 +1,138 @@
+{
+  "version": "1.0",
+  "status": "Specification, not a deployed database",
+  "reference_tables": {
+    "destinations": {
+      "primary_key": "destination_id",
+      "columns": {
+        "destination_id": "text",
+        "city": "text",
+        "meal_inr_per_person_day": "integer",
+        "transfer_inr_per_group": "integer",
+        "valid_from": "text",
+        "valid_to": "text",
+        "is_synthetic": "boolean",
+        "dataset_version": "text",
+        "description": "text"
+      },
+      "import": "destinations.csv",
+      "row_count": 20
+    },
+    "origins": {
+      "primary_key": "origin_id",
+      "columns": {
+        "origin_id": "text",
+        "city": "text",
+        "is_synthetic": "boolean"
+      },
+      "import": "origins.csv",
+      "row_count": 25
+    },
+    "flights": {
+      "primary_key": "flight_id",
+      "columns": {
+        "flight_id": "text",
+        "origin_id": "text",
+        "destination_id": "text",
+        "label": "text",
+        "roundtrip_inr_per_person": "integer",
+        "stops_each_way": "integer",
+        "duration_minutes_each_way": "integer",
+        "baggage_kg": "integer",
+        "cancellation_inr_per_person": "integer",
+        "taxes_included": "boolean",
+        "valid_from": "text",
+        "valid_to": "text",
+        "is_synthetic": "boolean",
+        "dataset_version": "text"
+      },
+      "import": "flights.csv",
+      "row_count": 960,
+      "foreign_keys": {
+        "origin_id": "origins.origin_id",
+        "destination_id": "destinations.destination_id"
+      }
+    },
+    "hotels": {
+      "primary_key": "hotel_id",
+      "columns": {
+        "hotel_id": "text",
+        "destination_id": "text",
+        "label": "text",
+        "nightly_inr_per_room": "integer",
+        "max_guests_per_room": "integer",
+        "max_rooms": "integer",
+        "quiet": "boolean",
+        "step_free": "boolean",
+        "diet_tags": "text",
+        "refundable": "boolean",
+        "cancellation_terms": "text",
+        "taxes_included": "boolean",
+        "valid_from": "text",
+        "valid_to": "text",
+        "is_synthetic": "boolean",
+        "dataset_version": "text"
+      },
+      "import": "hotels.csv",
+      "row_count": 60,
+      "foreign_keys": {
+        "destination_id": "destinations.destination_id"
+      }
+    }
+  },
+  "private_tables": {
+    "trips": {
+      "trip_id": "uuid primary key",
+      "owner_id": "auth uid required",
+      "trip_version": "integer",
+      "dataset_version": "text",
+      "confirmed_inputs": "jsonb",
+      "status": "text",
+      "updated_at": "timestamp",
+      "expires_at": "timestamp"
+    },
+    "messages": {
+      "message_id": "uuid primary key",
+      "trip_id": "FK trips",
+      "owner_id": "auth uid required",
+      "trip_version": "integer",
+      "role": "text",
+      "redacted_content": "text",
+      "validated_output": "jsonb",
+      "idempotency_key": "text unique per owner",
+      "created_at": "timestamp"
+    },
+    "retrieval_traces": {
+      "trace_id": "uuid primary key",
+      "trip_id": "FK trips",
+      "owner_id": "auth uid required",
+      "trip_version": "integer",
+      "dataset_version": "text",
+      "filters": "jsonb",
+      "result_count": "integer",
+      "record_ids": "jsonb",
+      "error_code": "text nullable",
+      "model_id": "text nullable",
+      "created_at": "timestamp"
+    },
+    "selections": {
+      "selection_id": "uuid primary key",
+      "trip_id": "FK trips",
+      "owner_id": "auth uid required",
+      "trip_version": "integer",
+      "option_id": "text",
+      "simulated": "boolean always true",
+      "idempotency_key": "text unique per owner",
+      "created_at": "timestamp"
+    },
+    "events": {
+      "event_id": "uuid primary key",
+      "owner_id": "auth uid required",
+      "trip_id": "FK trips",
+      "name": "text allowlist",
+      "properties": "jsonb coarse only",
+      "created_at": "timestamp"
+    }
+  },
+  "access": "Reference rows read-only to clients; owner/admin edits. Private rows use anonymous auth owner_id; never publish conversations."
+}
