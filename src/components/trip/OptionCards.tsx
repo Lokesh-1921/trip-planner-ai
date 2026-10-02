@@ -42,7 +42,7 @@ export function OptionCards({ result, trip, explanation, explanationNote, storag
   );
 }
 
-function Card({ o, rank, t, ai, storageReady }: { o: TripOption; rank: number; t: string; ai?: AssistantOutput["options"][number]; storageReady: boolean }) {
+function Card({ o, rank, t, ai, storageReady }: { o: TripOption; rank: number; t: string; ai?: AssistantOutput["options"][number] | undefined; storageReady: boolean }) {
   const b = o.breakdown;
   const line = (l: string, v: number, hint: string) => (
     <div className="flex justify-between gap-2 py-1"><dt className="text-muted-foreground">{l} <span className="text-xs">({hint})</span></dt><dd className="tabular-nums">{inr(v)}</dd></div>
