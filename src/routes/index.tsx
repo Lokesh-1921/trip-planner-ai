@@ -72,7 +72,7 @@ function Index() {
     finally { setBusy(false); }
   };
 
-  const applyPatch = (p: Record<string, unknown>) => change({ ...trip, ...(p as Partial<TripInputs>), preferences: { ...trip.preferences, ...((p.preferences as object) ?? {}) } });
+  const applyPatch = (p: Record<string, unknown>) => change({ ...trip, ...(p as Partial<TripInputs>), preferences: { ...trip.preferences, ...((p["preferences"] as object) ?? {}) } });
 
   return (
     <div>

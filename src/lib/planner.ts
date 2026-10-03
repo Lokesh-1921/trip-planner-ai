@@ -39,7 +39,7 @@ export type Issue = { field: keyof TripInputs | "party"; message: string };
 
 function parseDate(s: string): Date | null {
   if (!/^\d{4}-\d{2}-\d{2}$/.test(s)) return null;
-  const [y, m, d] = s.split("-").map(Number);
+  const [y = 0, m = 0, d = 0] = s.split("-").map(Number);
   const dt = new Date(Date.UTC(y, m - 1, d));
   if (dt.getUTCFullYear() !== y || dt.getUTCMonth() !== m - 1 || dt.getUTCDate() !== d) return null;
   return dt;

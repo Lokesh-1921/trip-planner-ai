@@ -82,7 +82,7 @@ export function getCatalog(): Catalog {
       hotel_id: r.hotel_id, destination_id: r.destination_id, label: r.label,
       nightly_inr_per_room: int(r.nightly_inr_per_room), max_guests_per_room: int(r.max_guests_per_room),
       max_rooms: int(r.max_rooms), quiet: bool(r.quiet), step_free: bool(r.step_free),
-      diet_tags: r.diet_tags ? r.diet_tags.split(";").map((s) => s.trim().toLowerCase()).filter(Boolean) : [],
+      diet_tags: r.diet_tags ? String(r.diet_tags).split(";").map((s: string) => s.trim().toLowerCase()).filter(Boolean) : [],
       refundable: bool(r.refundable), cancellation_terms: r.cancellation_terms, taxes_included: bool(r.taxes_included),
       valid_from: r.valid_from, valid_to: r.valid_to, is_synthetic: bool(r.is_synthetic), dataset_version: r.dataset_version,
     })),
