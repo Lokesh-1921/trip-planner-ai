@@ -1,5 +1,5 @@
 // Deterministic validation, retrieval, budget and ranking per retrieval-and-workflows.md v1.0.
-import { getCatalog, type Flight, type Hotel, type Destination } from "./catalog";
+import { getCatalog, type Catalog, type Flight, type Hotel, type Destination } from "./catalog";
 
 export const HORIZON_START = "2026-11-01";
 export const HORIZON_END = "2027-03-31";
@@ -53,19 +53,19 @@ export function nightsBetween(a: string, b: string): number | null {
 
 const norm = (s: string) => s.trim().toLowerCase();
 
-export function resolveOrigin(city: string) {
-  return getCatalog().origins.find((o) => norm(o.city) === norm(city)) ?? null;
+export function resolveOrigin(city: string, cat: Catalog = getCatalog()) {
+  return cat.origins.find((o) => norm(o.city) === norm(city)) ?? null;
 }
-export function resolveDestination(city: string) {
-  return getCatalog().destinations.find((d) => norm(d.city) === norm(city)) ?? null;
+export function resolveDestination(city: string, cat: Catalog = getCatalog()) {
+  return cat.destinations.find((d) => norm(d.city) === norm(city)) ?? null;
 }
 
-export function validateTrip(t: TripInputs): Issue[] {
+export function validateTrip(t: TripInputs, cat: Catalog = getCatalog()): Issue[] {
   const issues: Issue[] = [];
   if (!t.origin.trim()) issues.push({ field: "origin", message: "Where are you starting from?" });
-  else if (!resolveOrigin(t.origin)) issues.push({ field: "origin", message: `“${t.origin}” isn't in this synthetic dataset. Pick one of the 25 listed starting cities.` });
+  else if (!resolveOrigin(t.origin, cat)) issues.push({ field: "origin", message: `“${t.origin}” isn't in this synthetic dataset. Pick one of the 25 listed starting cities.` });
   if (!t.destination.trim()) issues.push({ field: "destination", message: "Which destination would you like to compare?" });
-  else if (!resolveDestination(t.destination)) issues.push({ field: "destination", message: `“${t.destination}” isn't one of the 20 domestic demo destinations.` });
+  else if (!resolveDestination(t.destination, cat)) issues.push({ field: "destination", message: `“${t.destination}” isn't one of the 20 domestic demo destinations.` });
   if (t.origin.trim() && norm(t.origin) === norm(t.destination)) issues.push({ field: "destination", message: "Origin and destination must be different cities." });
 
   const ds = parseDate(t.start_date), de = parseDate(t.end_date);
@@ -131,11 +131,10 @@ export type RetrievalResult =
 
 const covers = (row: { valid_from: string; valid_to: string }, a: string, b: string) => row.valid_from <= a && row.valid_to >= b;
 
-export function retrieve(t: TripInputs): RetrievalResult {
-  const issues = validateTrip(t);
+export function retrieve(t: TripInputs, cat: Catalog = getCatalog()): RetrievalResult {
+  const issues = validateTrip(t, cat);
   if (issues.length) return { status: "invalid", issues };
-  const cat = getCatalog();
-  const o = resolveOrigin(t.origin)!, d = resolveDestination(t.destination)!;
+  const o = resolveOrigin(t.origin, cat)!, d = resolveDestination(t.destination, cat)!;
   const P = t.adults + t.children_ages.length;
   const N = nightsBetween(t.start_date, t.end_date)!;
   const R = Math.ceil(P / 2);
