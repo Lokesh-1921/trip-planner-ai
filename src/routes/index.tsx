@@ -6,7 +6,9 @@ import { TripSummary } from "@/components/trip/TripSummary";
 import { ChatPanel, type ChatItem } from "@/components/trip/ChatPanel";
 import { OptionCards } from "@/components/trip/OptionCards";
 import { emptyTrip, retrieve, validateTrip, type RetrievalResult, type TripInputs } from "@/lib/planner";
-import { getBackendStatus, runAssistant, type AssistantOutput } from "@/lib/assistant.functions";
+import { getBackendStatus, type AssistantOutput } from "@/lib/assistant.functions";
+// Temporary: the page is not yet connected to the new private-storage functions in trip.functions.ts.
+const runAssistant = async (_: unknown): Promise<{ status: "model_error"; output?: AssistantOutput; save_note?: string }> => ({ status: "model_error" });
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -50,8 +52,7 @@ function Index() {
     setBusy(true);
     try {
       const res = await runAssistant({ data: { mode: "explain", trip, trip_version: version, history: [] } });
-      if (res.status === "ok") { setExplanation(res.output); setNote(res.save_note); }
-      else setNote(res.status === "model_error" ? "The AI explanation couldn't be produced. The numbers below are still exact. Try again shortly." : "AI explanation unavailable.");
+      setNote(res.status === "model_error" ? "The AI explanation couldn't be produced. The numbers below are still exact. Try again shortly." : "AI explanation unavailable.");
     } catch { setNote("AI service error. The numbers below are still exact."); }
     finally { setBusy(false); }
   };
@@ -66,8 +67,7 @@ function Index() {
     setBusy(true);
     try {
       const res = await runAssistant({ data: { mode: "extract", message: text, trip, trip_version: version, history: [] } });
-      if (res.status === "ok") setChat((c) => [...c, { kind: "assistant", text: res.output.message, question: res.output.question, patch: res.output.input_patch }]);
-      else setChat((c) => [...c, { kind: "notice", tone: "error", retry: true, text: "The assistant couldn't reply right now. Your inputs are kept." }]);
+      setChat((c) => [...c, { kind: "notice", tone: "error", retry: true, text: "The assistant couldn't reply right now. Your inputs are kept." }]);
     } catch { setChat((c) => [...c, { kind: "notice", tone: "error", retry: true, text: "Connection problem. Your inputs are kept." }]); }
     finally { setBusy(false); }
   };

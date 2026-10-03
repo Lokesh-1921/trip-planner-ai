@@ -125,7 +125,7 @@ export type RetrievalResult =
       group_budget_inr: number;
       options: TripOption[];
       eligible_in_budget: number;
-      filters: Record<string, unknown>;
+      filters: Record<string, string | number | boolean | null>;
       diagnostics: { flights_found: number; stays_found: number; combinations: number; cheapest_excluded_total: number | null; reason: string | null };
     };
 
